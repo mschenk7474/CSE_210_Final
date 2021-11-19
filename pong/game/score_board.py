@@ -1,4 +1,5 @@
 import random
+from game import constants
 from game.actor import Actor
 from game.point import Point
 
@@ -18,27 +19,66 @@ class ScoreBoard(Actor):
             self (Score): an instance of Score.
         """
         super().__init__()
-        self._points = 0
-        position = Point(1, 0)
-        self.set_position(position)
-        self.set_text(f"Score: {self._points}")
+        self._points_left = 0
+        self._points_right = 0
+        self._scoreboard_left = []
+        self._scoreboard_right = []
+        # position = Point(1, 0)
+        # self.set_position(position)
+        # self.set_text(f"Score: {self._points}")
     
-    def add_points(self, points):
+    def set_scoreboard_left(self):
+        """
+        Sets the scoreboard left as an actor and gives it properties.
+        """
+        scoreL = Actor()
+        scoreL_position = Point(250, 0)
+        scoreL.set_position(scoreL_position)
+        scoreL.set_text(f"{self._points_left}")
+
+        self._scoreboard_left.append(scoreL)
+    
+    def get_scoreboard_left(self):
+        """
+        Returns the scoreboard left to be used elsewhere.
+        """
+        return self._scoreboard_left
+
+    def set_scoreboard_right(self):
+        """
+        Sets the scoreboard right as an actor and gives it properties.
+        """
+        scoreR = Actor()
+        scoreR_position = Point(500, 0)
+        scoreR.set_position(scoreR_position)
+        scoreR.set_text(f"{self._points_left}")
+
+        self._scoreboard_right.append(scoreR)
+    
+    def get_scoreboard_right(self):
+        """
+        Returns the scoreboard right to be used elsewhere.
+        """
+        return self._scoreboard_right
+
+    def add_points_left(self, points):
         """Adds the given points to the running total and updates the text.
         
         Args:
             self (Score): An instance of Score.
             points (integer): The points to add.
         """
-        self._points += points
-        self.set_text(f"{self._points}")
+        scoreL = Actor()
+        self._points_left += points
+        scoreL.set_text(f"{self._points}")
 
-   #  def sub_points(self, points):
-   #      """Subtracts the given points from the running total and updates the text.
+    def add_points_right(self, points):
+        """Adds the given points to the running total and updates the text.
         
-   #      Args:
-   #          self (Score): An instance of Score.
-   #          points (integer): The points to subtract.
-   #      """
-   #      self._points -= points
-   #      self.set_text(f"Score: {self._points}")
+        Args:
+            self (Score): An instance of Score.
+            points (integer): The points to add.
+        """
+        scoreR = Actor()
+        self._points_right += points
+        scoreR.set_text(f"{self._points}")

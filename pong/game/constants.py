@@ -6,7 +6,7 @@ MAX_Y_HALF = 300
 FRAME_RATE = 30
 
 DEFAULT_SQUARE_SIZE = 20
-DEFAULT_FONT_SIZE = 20
+DEFAULT_FONT_SIZE = 90
 DEFAULT_TEXT_OFFSET = 4
 
 # IMAGE_BRICK = os.path.join(os.getcwd(), "cse210-batter\\batter\\assets\\brick-3.png")
@@ -25,6 +25,9 @@ BALL_DY = BALL_DX * -1
 
 PADDLE_X = MAX_X / 2
 PADDLE_Y = MAX_Y - 25
+
+SCORE_HEIGHT = 50
+SCORE_WIDTH = 40
 
 # BRICK_WIDTH = 24
 # BRICK_HEIGHT = 48

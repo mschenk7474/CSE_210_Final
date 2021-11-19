@@ -16,6 +16,7 @@ from game.audio_service import AudioService
 # from game.brick import Brick
 from game.ball import Ball
 from game.paddles import Paddles
+from game.score_board import ScoreBoard
 # from game.control_actors_action import ControlActorsAction
 # from game.handle_collisions_action import HandleCollisionsAction
 # from game.handle_off_screen_action import HandleOffScreenAction
@@ -48,8 +49,16 @@ def main():
     cast["paddleR"] = paddleR
 
     cast["scoreboardL"] = []
+    scoreL = ScoreBoard()
+    scoreL.set_scoreboard_left()
+    scoreL = scoreL.get_scoreboard_left()
+    cast["scoreboardL"] = scoreL
 
     cast["scoreboardR"] = []
+    scoreR = ScoreBoard()
+    scoreR.set_scoreboard_right()
+    scoreR = scoreR.get_scoreboard_right()
+    cast["scoreboardR"] = scoreR
 
    #  cast["bricks"] = []
    #  brick = Brick()
