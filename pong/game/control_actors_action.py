@@ -22,3 +22,13 @@ class ControlActorsAction():
       #   direction = self._input_service.get_direction()
       #   paddle = cast["paddle"][0] # there's only one in the cast
       #   paddle.set_velocity(direction.scale(constants.PADDLE_SPEED))
+        #Left Paddle
+        direction_left = self._input_service.get_direction_left()
+        paddleL = cast["paddleL"][0]
+        paddleL.set_velocity(direction_left.scale(constants.PADDLE_SPEED))
+
+
+        #Right Paddle
+        direction_right = self._input_service.get_direction_right()
+        paddleR = cast["paddleR"][0]
+        paddleR.set_velocity(direction_right.scale(constants.PADDLE_SPEED))

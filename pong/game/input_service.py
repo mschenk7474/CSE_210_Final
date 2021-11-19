@@ -19,7 +19,7 @@ class InputService:
         """
         pass
         
-    def get_direction(self):
+    def get_direction_left(self):
         """Gets the selected direction based on the currently pressed keys.
 
         Args:
@@ -30,15 +30,30 @@ class InputService:
         """
         dx = 0
         dy = 0
-      # Doesn't need to go left or right
-      #   if self.is_left_pressed():
-      #       dx = -1
-        
-      #   if self.is_right_pressed():
-      #       dx = 1
         #PUT IN FIRST PLAYERS!!
 
         #Second Player's controls
+        if self.is_w_pressed():
+            dy = -1
+        
+        if self.is_s_pressed():
+            dy = 1
+
+        direction = Point(dx, dy)
+        return direction
+
+    def get_direction_right(self):
+        """Gets the selected direction based on the currently pressed keys.
+
+        Args:
+            self (InputService): An instance of InputService.
+
+        Returns:
+            Point: The selected direction.
+        """
+        dx = 0
+        dy = 0
+
         if self.is_up_pressed():
             dy = -1
         
@@ -48,17 +63,18 @@ class InputService:
         direction = Point(dx, dy)
         return direction
 
-    def is_left_pressed(self):
-        return raylibpy.is_key_down(raylibpy.KEY_LEFT)
-
-    def is_right_pressed(self):
-        return raylibpy.is_key_down(raylibpy.KEY_RIGHT)
-
     def is_up_pressed(self):
         return raylibpy.is_key_down(raylibpy.KEY_UP)
 
     def is_down_pressed(self):
         return raylibpy.is_key_down(raylibpy.KEY_DOWN)
+
+    def is_w_pressed(self):
+        return raylibpy.is_key_down(raylibpy.KEY_W)
+
+    def is_s_pressed(self):
+        return raylibpy.is_key_down(raylibpy.KEY_S)
+
 
     def window_should_close(self):
         return raylibpy.window_should_close()

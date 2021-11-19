@@ -17,7 +17,7 @@ from game.audio_service import AudioService
 from game.ball import Ball
 from game.paddles import Paddles
 from game.score_board import ScoreBoard
-# from game.control_actors_action import ControlActorsAction
+from game.control_actors_action import ControlActorsAction
 # from game.handle_collisions_action import HandleCollisionsAction
 # from game.handle_off_screen_action import HandleOffScreenAction
 # from game.move_actors_action import MoveActorsAction
@@ -93,11 +93,11 @@ def main():
     draw_actors_action = DrawActorsAction(output_service)
    #  move_actors_action = MoveActorsAction()
    #  handle_off_screen_action = HandleOffScreenAction()
-   #  control_actors_action = ControlActorsAction(input_service)
+    control_actors_action = ControlActorsAction(input_service)
    #  handle_collisions_action = HandleCollisionsAction(physics_service)
    #  check_end = CheckEnd(cast)
 
-    script["input"] = []
+    script["input"] = [control_actors_action]
     script["update"] = []
     script["output"] = [draw_actors_action]  
    #  script["input"] = [control_actors_action]
