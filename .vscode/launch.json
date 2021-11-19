@@ -1,0 +1,13 @@
+{
+   "version": "0.2.0",
+   "configurations": [
+       {
+           "name": "Run Pong",
+           "type": "python",
+           "request": "launch",
+           "program": "pong",
+           "console": "integratedTerminal",
+           "cwd": "${workspaceFolder}"
+       }
+   ]
+}
