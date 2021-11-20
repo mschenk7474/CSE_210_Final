@@ -40,4 +40,4 @@ root                    (project root folder)
 
 ## Authors
 ---
-* ~ Mason Schenk: sch19013@byui.edu
+*  Mason Schenk: sch19013@byui.edu
