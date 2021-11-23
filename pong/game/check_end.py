@@ -1,6 +1,7 @@
 from game.score_board import ScoreBoard
 from game.point import Point
 from game import constants
+from game.ball import Ball
 
 
 class CheckEnd():
@@ -12,12 +13,14 @@ class CheckEnd():
       self._cast = cast
       self._keep_playing = True
       self.score_board = ScoreBoard()
+      self.b = Ball()
    def execute(self, cast):
       """
       If anything needs to be executed for the condtions to work, it is done here.
       """
       pass
       ball = cast["ball"][0] #There's only one ball
+      ball_list = cast["ball"]
       # ball_list = cast["balls"]
       score_board_left = cast["scoreboardL"][0]
       score_board_right = cast["scoreboardR"][0]
@@ -35,6 +38,10 @@ class CheckEnd():
          score_board_left.set_text(sbl_text)
          #self.score_board.add_points_left(score_left)
          #Put the ball back in the middle
+         # for ball in ball_list:
+         #    ball_list.remove(ball)
+         # self.b.set_ball()
+
          ball_x = center_x
          ball_y = center_y
          ball_position = Point(ball_x, ball_y)
@@ -46,6 +53,11 @@ class CheckEnd():
          score_board_right.set_text(sbl_text_r)
          #self.score_board.add_points_right(score_right)
          #Put ball back in middle
+         # for ball in ball_list:
+         # self.b.set_ball()
+         # self.b.get_ball()
+         # cast["ball"] = self.b
+         # ball_list.remove(ball)
          ball_x = center_x
          ball_y = center_y
          ball_position = Point(ball_x, ball_y)
@@ -62,9 +74,9 @@ class CheckEnd():
       score_left_points = self.score_left
       score_right_points = self.score_right
 
-      if score_left_points == 1:
+      if score_left_points == 7:
          return False
-      elif score_right_points == 1:
+      elif score_right_points == 7:
          return False
       else:
          return True

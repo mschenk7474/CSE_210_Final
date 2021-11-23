@@ -29,14 +29,14 @@ class HandleOffScreenAction():
       ball_velocity_y = ball._velocity._y
 
       # If it hits top or bottom of the screen
-      if ball_x == 0:
-         ball_velocity_x = ball_velocity_x * -1
-         ball_velocity = Point(ball_velocity_x,ball_velocity_y)
-         ball.set_velocity(ball_velocity)
-      elif ball_x == 800:
-         ball_velocity_x = ball_velocity_x * -1
-         ball_velocity = Point(ball_velocity_x,ball_velocity_y)
-         ball.set_velocity(ball_velocity)
+      # if ball_x == 0:
+      #    ball_velocity_x = ball_velocity_x * -1
+      #    ball_velocity = Point(ball_velocity_x,ball_velocity_y)
+      #    ball.set_velocity(ball_velocity)
+      # elif ball_x == 800:
+      #    ball_velocity_x = ball_velocity_x * -1
+      #    ball_velocity = Point(ball_velocity_x,ball_velocity_y)
+      #    ball.set_velocity(ball_velocity)
 
       #If it hits left or right of the screen
       if ball_y == 0:
@@ -56,7 +56,7 @@ class HandleOffScreenAction():
       paddleL_dy = paddleL._velocity._y
       paddleL_height = self.constants.PADDLE_HEIGHT
       max_y = self.constants.MAX_Y
-      paddleL_y_bound = max_y + paddleL_height 
+      paddleL_y_bound = max_y + paddleL_height
 
       paddleR = cast["paddleR"][0]
       paddleR_x = paddleR._position.get_x()
@@ -81,7 +81,8 @@ class HandleOffScreenAction():
          paddleR_position = Point(paddleR_x, paddleR_y_new)
          paddleR.set_position(paddleR_position)
       elif paddleR_y == 600:
-         paddleR_y_new = min(paddleR_y - paddleR_dy, paddleR_y_bound ) #was 735
+         #paddleR_y_new = min(paddleR_y - paddleR_dy, paddleR_y_bound ) #was 735
+         paddleR_y_new = min(paddleR_y - paddleR_dy, paddleR_y_bound)
          paddleR_position = Point(paddleR_x, paddleR_y_new)
          paddleR.set_position(paddleR_position)
 

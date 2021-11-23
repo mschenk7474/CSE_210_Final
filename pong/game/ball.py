@@ -35,7 +35,6 @@ class Ball():
       ball.set_velocity(ball_velocity)
       
       self._ball.append(ball)
-      pass
 
    def get_ball(self):
       """

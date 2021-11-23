@@ -98,8 +98,8 @@ def main():
     check_end = CheckEnd(cast)
 
     script["input"] = [control_actors_action]
-    script["update"] = [move_actors_action, handle_collisions_action, handle_off_screen_action,check_end]
-    script["output"] = [draw_actors_action]  
+    script["update"] = [move_actors_action, handle_collisions_action, handle_off_screen_action]
+    script["output"] = [check_end, draw_actors_action]  
    #  script["input"] = [control_actors_action]
    #  script["update"] = [move_actors_action, handle_off_screen_action, handle_collisions_action]
    #  script["output"] = [check_end, draw_actors_action]
