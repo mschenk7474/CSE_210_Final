@@ -68,9 +68,9 @@ class ScoreBoard(Actor):
             self (Score): An instance of Score.
             points (integer): The points to add.
         """
-        scoreL = Actor()
+        scoreL = self._scoreboard_left[0]
         self._points_left += points
-        scoreL.set_text(f"{self._points}")
+        scoreL.set_text(f"{self._points_left}")
 
     def add_points_right(self, points):
         """Adds the given points to the running total and updates the text.
@@ -79,6 +79,6 @@ class ScoreBoard(Actor):
             self (Score): An instance of Score.
             points (integer): The points to add.
         """
-        scoreR = Actor()
+        scoreR = self._scoreboard_right[0]
         self._points_right += points
-        scoreR.set_text(f"{self._points}")
+        scoreR.set_text(f"{self._points_right}")

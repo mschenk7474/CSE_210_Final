@@ -33,7 +33,7 @@ class Director:
             self._cue_action("update")
             self._cue_action("output")
 
-            #self._keep_playing = self._script["output"][0].if_done()
+            self._keep_playing = self._script["update"][3].if_done()
 
 
             if raylibpy.window_should_close():

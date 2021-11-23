@@ -1,7 +1,7 @@
 import os
 
-MAX_X = 800
-MAX_Y = 600
+MAX_X = 825
+MAX_Y = 625
 MAX_Y_HALF = 300
 FRAME_RATE = 30
 

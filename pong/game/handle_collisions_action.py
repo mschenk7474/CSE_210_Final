@@ -3,6 +3,7 @@ from game.point import Point
 from game.action import Action
 from game import constants
 from game.audio_service import AudioService
+import random
 
 class HandleCollisionsAction():
    def __init__(self, physics_service):
@@ -17,6 +18,27 @@ class HandleCollisionsAction():
       Args:
          cast (dict): The game actors {key: tag, value: list}.
       """
+      ball = cast["ball"][0]
+      paddleL = cast["paddleL"][0]
+      paddleR = cast["paddleR"][0]
+      ball_velocity_x = ball._velocity._x
+      ball_velocity_y = ball._velocity._y
+      ball_velocity = ball.get_velocity()
+
+      self._random_y_velo = random.randint(-1, 1)
+      if self._random_y_velo == 0:
+         self._random_y_velo = random.randint(-1, 1)
+
+      if self._physics_service.is_collision(ball, paddleL):
+         ball_velocity_x = ball_velocity_x * -1
+         ball_velocity_y = self._random_y_velo
+         ball_velocity = Point(ball_velocity_x, ball_velocity_y)
+         ball.set_velocity(ball_velocity)
+      elif self._physics_service.is_collision(ball, paddleR):
+         ball_velocity_x = ball_velocity_x * -1
+         ball_velocity_y = self._random_y_velo
+         ball_velocity = Point(ball_velocity_x, ball_velocity_y)
+         ball.set_velocity(ball_velocity)
       # balls = cast["balls"][0]
       # paddle = cast["paddle"][0]
       # bricks = cast["bricks"]
