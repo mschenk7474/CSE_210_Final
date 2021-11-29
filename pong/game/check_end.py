@@ -16,6 +16,8 @@ class CheckEnd():
       self._keep_playing = True
       self.score_board = ScoreBoard()
       self.b = Ball()
+      self.score_left = 0
+      self.score_right = 0
    def execute(self, cast):
       """
       If anything needs to be executed for the condtions to work, it is done here.
@@ -28,13 +30,11 @@ class CheckEnd():
       score_board_right = cast["scoreboardR"][0]
       ball_y = ball._position.get_y()
       ball_x = ball._position.get_x()
-      self.score_left = 0
-      self.score_right = 0
       center_x = constants.MAX_X / 2
       center_y = constants.MAX_Y / 2
       if ball_x <= 0:
          #Add points
-         self.score_left = self.score_left + 1
+         self.score_left += 1
          sbl_text = score_board_left.get_text()
          sbl_text = (f"{self.score_left}")
          score_board_left.set_text(sbl_text)
@@ -49,7 +49,7 @@ class CheckEnd():
          ball_position = Point(ball_x, ball_y)
          ball.set_position(ball_position)
       elif ball_x >= 800:
-         self.score_right = self.score_right + 1
+         self.score_right += 1
          sbl_text_r = score_board_right.get_text()
          sbl_text_r = (f"{self.score_right}")
          score_board_right.set_text(sbl_text_r)
@@ -82,7 +82,6 @@ class CheckEnd():
          return False
       else:
          return True
-      pass
       # if len(self._cast["bricks"]) == 0:
       #           # Game over
       #    return False
