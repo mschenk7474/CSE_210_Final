@@ -56,7 +56,7 @@ class HandleOffScreenAction():
       paddleL_dy = paddleL._velocity._y
       paddleL_height = self.constants.PADDLE_HEIGHT
       max_y = self.constants.MAX_Y
-      paddleL_y_bound = max_y + paddleL_height
+      paddleL_y_bound = max_y - paddleL_height
 
       paddleR = cast["paddleR"][0]
       paddleR_x = paddleR._position.get_x()
@@ -65,26 +65,40 @@ class HandleOffScreenAction():
       paddleR_dy = paddleR._velocity._y
       paddleR_height = self.constants.PADDLE_HEIGHT
       max_y = self.constants.MAX_Y
-      paddleR_y_bound = max_y + paddleR_height
+      paddleR_y_bound = max_y - paddleR_height
+      
+      if paddleL_y >= paddleL_y_bound:
+         paddleL_pos = Point(paddleL_x, paddleL_y_bound)
+         paddleL.set_position(paddleL_pos)
+      elif paddleL_y <= 0:
+         paddleL_pos = Point(paddleL_x, 0)
+         paddleL.set_position(paddleL_pos)
+
+      if paddleR_y >= paddleR_y_bound:
+         paddleR_pos = Point(paddleR_x, paddleR_y_bound)
+         paddleR.set_position(paddleR_pos)
+      elif paddleR_y <= 0:
+         paddleR_pos = Point(paddleR_x, 0)
+         paddleR.set_position(paddleR_pos)
 
 
-      if paddleL_y == 0:
-         paddleL_y_new = max(paddleL_y - paddleL_dy, 0)
-         paddleL_position = Point(paddleL_x, paddleL_y_new)
-         paddleL.set_position(paddleL_position)
-      elif paddleL_y == 600:
-         paddleL_y_new = min(paddleL_y - paddleL_dy, paddleL_y_bound ) #was 735
-         paddleL_position = Point(paddleL_x, paddleL_y_new)
-         paddleL.set_position(paddleL_position)
-      elif paddleR_y == 0:
-         paddleR_y_new = max(paddleR_y - paddleR_dy, 0)
-         paddleR_position = Point(paddleR_x, paddleR_y_new)
-         paddleR.set_position(paddleR_position)
-      elif paddleR_y == 600:
-         #paddleR_y_new = min(paddleR_y - paddleR_dy, paddleR_y_bound ) #was 735
-         paddleR_y_new = min(paddleR_y - paddleR_dy, paddleR_y_bound)
-         paddleR_position = Point(paddleR_x, paddleR_y_new)
-         paddleR.set_position(paddleR_position)
+      # if paddleL_y == 0:
+      #    paddleL_y_new = max(paddleL_y - paddleL_dy, 0)
+      #    paddleL_position = Point(paddleL_x, paddleL_y_new)
+      #    paddleL.set_position(paddleL_position)
+      # elif paddleL_y == 600:
+      #    paddleL_y_new = min(paddleL_y - paddleL_dy, paddleL_y_bound ) #was 735
+      #    paddleL_position = Point(paddleL_x, paddleL_y_new)
+      #    paddleL.set_position(paddleL_position)
+      # elif paddleR_y == 0:
+      #    paddleR_y_new = max(paddleR_y - paddleR_dy, 0)
+      #    paddleR_position = Point(paddleR_x, paddleR_y_new)
+      #    paddleR.set_position(paddleR_position)
+      # elif paddleR_y == 600:
+      #    #paddleR_y_new = min(paddleR_y - paddleR_dy, paddleR_y_bound ) #was 735
+      #    paddleR_y_new = min(paddleR_y - paddleR_dy, paddleR_y_bound)
+      #    paddleR_position = Point(paddleR_x, paddleR_y_new)
+      #    paddleR.set_position(paddleR_position)
 
 
       # ball = cast["balls"][0] #There's only one ball

@@ -2,6 +2,7 @@ from game.score_board import ScoreBoard
 from game.point import Point
 from game import constants
 from game.ball import Ball
+from game.action import Action
 
 
 class CheckEnd():
@@ -10,6 +11,7 @@ class CheckEnd():
    when the game is done.
    """
    def __init__(self, cast):
+      super().__init__()
       self._cast = cast
       self._keep_playing = True
       self.score_board = ScoreBoard()
@@ -30,7 +32,7 @@ class CheckEnd():
       self.score_right = 0
       center_x = constants.MAX_X / 2
       center_y = constants.MAX_Y / 2
-      if ball_x == 0:
+      if ball_x <= 0:
          #Add points
          self.score_left = self.score_left + 1
          sbl_text = score_board_left.get_text()
@@ -46,7 +48,7 @@ class CheckEnd():
          ball_y = center_y
          ball_position = Point(ball_x, ball_y)
          ball.set_position(ball_position)
-      elif ball_x == 800:
+      elif ball_x >= 800:
          self.score_right = self.score_right + 1
          sbl_text_r = score_board_right.get_text()
          sbl_text_r = (f"{self.score_right}")
