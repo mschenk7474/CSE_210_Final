@@ -22,6 +22,7 @@ SOUND_START = os.path.join(os.getcwd(), "CSE_210_Final\\pong\\assets\\start soun
 SOUND_END = os.path.join(os.getcwd(), "CSE_210_Final\\pong\\assets\\game over sound.wav")
 SOUND_HIT = os.path.join(os.getcwd(), "CSE_210_Final\\pong\\assets\\hit sound.wav")
 
+IMAGE_BALL = os.path.join(os.getcwd(), "CSE_210_Final\\pong\\assets\\ball for pong.png")
 
 BALL_X = MAX_X / 2
 BALL_Y = MAX_Y - 125
