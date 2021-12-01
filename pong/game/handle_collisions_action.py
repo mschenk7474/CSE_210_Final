@@ -30,11 +30,13 @@ class HandleCollisionsAction():
          self._random_y_velo = random.randint(-1, 1)
 
       if self._physics_service.is_collision(ball, paddleL):
+         self._audio_service.play_sound(constants.SOUND_PADDLE_BOUNCE)
          ball_velocity_x = ball_velocity_x * -1
          ball_velocity_y = self._random_y_velo
          ball_velocity = Point(ball_velocity_x, ball_velocity_y)
          ball.set_velocity(ball_velocity)
-      elif self._physics_service.is_collision(ball, paddleR):
+      if self._physics_service.is_collision(ball, paddleR):
+         self._audio_service.play_sound(constants.SOUND_PADDLE_BOUNCE)
          ball_velocity_x = ball_velocity_x * -1
          ball_velocity_y = self._random_y_velo
          ball_velocity = Point(ball_velocity_x, ball_velocity_y)

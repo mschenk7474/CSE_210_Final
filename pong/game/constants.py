@@ -17,6 +17,12 @@ DEFAULT_TEXT_OFFSET = 4
 # SOUND_BOUNCE = os.path.join(os.getcwd(), "cse210-batter\\batter\\assets\\boing.wav")
 # SOUND_OVER = os.path.join(os.getcwd(), "cse210-batter\\batter\\assets\over.wav")
 
+SOUND_PADDLE_BOUNCE = os.path.join(os.getcwd(), "CSE_210_Final\\pong\\assets\\off paddle sound.wav")
+SOUND_START = os.path.join(os.getcwd(), "CSE_210_Final\\pong\\assets\\start sound.wav")
+SOUND_END = os.path.join(os.getcwd(), "CSE_210_Final\\pong\\assets\\game over sound.wav")
+SOUND_HIT = os.path.join(os.getcwd(), "CSE_210_Final\\pong\\assets\\hit sound.wav")
+
+
 BALL_X = MAX_X / 2
 BALL_Y = MAX_Y - 125
 

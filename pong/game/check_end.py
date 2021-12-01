@@ -2,6 +2,7 @@ from game.score_board import ScoreBoard
 from game.point import Point
 from game import constants
 from game.ball import Ball
+from game.audio_service import AudioService
 from game.action import Action
 
 
@@ -18,6 +19,7 @@ class CheckEnd():
       self.b = Ball()
       self.score_left = 0
       self.score_right = 0
+      self._audio_service = AudioService()
    def execute(self, cast):
       """
       If anything needs to be executed for the condtions to work, it is done here.
@@ -38,6 +40,7 @@ class CheckEnd():
          sbl_text = score_board_left.get_text()
          sbl_text = (f"{self.score_left}")
          score_board_left.set_text(sbl_text)
+         self._audio_service.play_sound(constants.SOUND_HIT)
          #self.score_board.add_points_left(score_left)
          #Put the ball back in the middle
          # for ball in ball_list:
@@ -53,6 +56,7 @@ class CheckEnd():
          sbl_text_r = score_board_right.get_text()
          sbl_text_r = (f"{self.score_right}")
          score_board_right.set_text(sbl_text_r)
+         self._audio_service.play_sound(constants.SOUND_HIT)
          #self.score_board.add_points_right(score_right)
          #Put ball back in middle
          # for ball in ball_list:
