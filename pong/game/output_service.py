@@ -42,6 +42,12 @@ class OutputService:
         """
         raylibpy.draw_rectangle(x, y, width, height, raylibpy.WHITE)
 
+    def draw_line(self, x, y, width, height):
+        """
+        Draws a line to determine the sides
+        """
+        raylibpy.draw_rectangle(x, y, width, height, raylibpy.WHITE)
+
     def draw_text(self, x, y, text, is_dark_text):
         """
         Outputs the provided text at the desired location.
