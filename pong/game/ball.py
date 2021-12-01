@@ -15,7 +15,7 @@ class Ball():
 
 
    def set_ball(self):
-      ints = [15, -15]
+      ints = [18, -18]
       self._random_x_velo = random.choice(ints)
       self._random_y_velo = random.randint(-5, 5)
       if self._random_y_velo == 0:
