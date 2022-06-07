@@ -38,6 +38,6 @@ root                    (project root folder)
 * Python 3.8.0
 * Raylib-py
 
-## Authors
+## Author
 ---
 *  Mason Schenk: sch19013@byui.edu
